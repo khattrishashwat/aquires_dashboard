@@ -1,10 +1,10 @@
 import axios from "axios";
-import { store } from "../redux";
+import store from "../redux";
 import { setAccessToken, logout } from "../redux/store";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-const API_BASE = process.env.REACT_APP_API || "";
+const API_BASE = import.meta.env.VITE_API_BASE || "";
 
 // ✅ Axios Instance
 const api = axios.create({

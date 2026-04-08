@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   CreditCard,
@@ -150,31 +151,33 @@ const AdminSidebar = () => {
                 {openMenus[item.name] && (
                   <div className="ml-8 pl-2 border-l border-[rgba(192,123,252,0.1)] mt-1 space-y-1">
                     {item.items.map((subItem) => (
-                      <a
+                      <NavLink
                         key={subItem.name}
-                        href={subItem.path}
+                        to={subItem.path}
                         className="flex items-center gap-3 px-4 py-2 rounded-lg transition-all text-[#d9cde4] hover:bg-[rgba(192,123,252,0.08)] text-sm"
                       >
                         {subItem.icon && <subItem.icon className="w-3.5 h-3.5 opacity-70" />}
                         <span>{subItem.name}</span>
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 )}
               </>
             ) : (
-              <a
-                href={item.path}
+              <NavLink
+                to={item.path}
                 onClick={() => setActiveMenu(item.name)}
-                className={`flex items-center px-4 py-2.5 rounded-lg mb-1 transition-all ${
-                  activeMenu === item.name
-                    ? "bg-[rgba(192,123,252,0.15)] border-l-2 border-[#c07bfc] text-[#c07bfc]"
-                    : "text-[#d9cde4] hover:bg-[rgba(192,123,252,0.08)]"
-                }`}
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-2.5 rounded-lg mb-1 transition-all ${
+                    activeMenu === item.name || isActive
+                      ? "bg-[rgba(192,123,252,0.15)] border-l-2 border-[#c07bfc] text-[#c07bfc]"
+                      : "text-[#d9cde4] hover:bg-[rgba(192,123,252,0.08)]"
+                  }`
+                }
               >
                 <item.icon className="w-4 h-4" />
                 <span className="ml-3 text-sm font-medium">{item.name}</span>
-              </a>
+              </NavLink>
             )}
           </div>
         ))}

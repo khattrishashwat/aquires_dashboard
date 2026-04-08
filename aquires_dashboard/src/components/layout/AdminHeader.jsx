@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Bell, LogOut, User, Calendar, ChevronDown, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Button } from "../../components/ui/button";
+import { SidebarTrigger } from "../../components/ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useAuth } from "@/contexts/AuthContext";
+} from "../../components/ui/dropdown-menu";
+import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const AdminHeader = () => {
