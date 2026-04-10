@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-// import RootLayout from "../components/layout/AdminLayout";
+import AuthLayout from "../components/layout/AuthLayout";
+import AdminLayout from "../components/layout/AdminLayout";
 import Login from "../pages/auth/Login";
 import Dashboard from "../components/dashboard/Dashboard";
 
@@ -7,11 +8,18 @@ import Dashboard from "../components/dashboard/Dashboard";
 export const router = createBrowserRouter([
     {
         path: "/login",
-        element: <Login />,
+                // element: <RootLayout />,
+        element: <AuthLayout />,
+        children: [
+            {
+                index: true,
+                element: <Login />,
+            },
+        ],
     },
     {
         path: "/",
-        // element: <RootLayout />,
+        element: <AdminLayout />,
         children: [
             {
                 index: true,

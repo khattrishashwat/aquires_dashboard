@@ -6,11 +6,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { ToastContainer } from "react-toastify";
 import { Toaster as Sonner } from "sonner";
-import "react-toastify/dist/ReactToastify.css";
-import "./style/styles.css";
-import "react-quill/dist/quill.snow.css";
-import "react-circular-progressbar/dist/styles.css";
-import "react-perfect-scrollbar/dist/css/styles.css";
+// import "react-toastify/dist/ReactToastify.css";
+// import "./style/style.css";
+// import "react-quill/dist/quill.snow.css";
+// import "react-circular-progressbar/dist/styles.css";
+// import "react-perfect-scrollbar/dist/css/styles.css";
 
 import NavigationProvider from "./contentApi/navigationProvider";
 import SideBarToggleProvider from "./contentApi/sideBarToggleProvider";

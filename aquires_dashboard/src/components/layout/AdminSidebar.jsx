@@ -24,7 +24,6 @@ import {
   Scale,
   Gavel,
   Eye,
-  Zap,
   Bell,
   ListChecks,
   FileBarChart,
@@ -33,8 +32,7 @@ import {
   Network,
 } from "lucide-react";
 
-const AdminSidebar = () => {
-  const [activeMenu, setActiveMenu] = useState("Dashboard");
+export const AdminSidebar = () => {
   const [openMenus, setOpenMenus] = useState({});
 
   const toggleSubmenu = (menuName) => {
@@ -137,6 +135,9 @@ const AdminSidebar = () => {
                 <button
                   onClick={() => toggleSubmenu(item.name)}
                   className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg transition-all text-[#d9cde4] hover:bg-[rgba(192,123,252,0.08)]"
+                  type="button"
+                  aria-expanded={!!openMenus[item.name]}
+                  aria-controls={`submenu-${item.name.replace(/\s/g, '-')}`}
                 >
                   <div className="flex items-center gap-3">
                     <item.icon className="w-5 h-5" />
@@ -149,7 +150,10 @@ const AdminSidebar = () => {
                   />
                 </button>
                 {openMenus[item.name] && (
-                  <div className="ml-8 pl-2 border-l border-[rgba(192,123,252,0.1)] mt-1 space-y-1">
+                  <div
+                    className="ml-8 pl-2 border-l border-[rgba(192,123,252,0.1)] mt-1 space-y-1"
+                    id={`submenu-${item.name.replace(/\s/g, '-')}`}
+                  >
                     {item.items.map((subItem) => (
                       <NavLink
                         key={subItem.name}
@@ -166,10 +170,9 @@ const AdminSidebar = () => {
             ) : (
               <NavLink
                 to={item.path}
-                onClick={() => setActiveMenu(item.name)}
                 className={({ isActive }) =>
                   `flex items-center px-4 py-2.5 rounded-lg mb-1 transition-all ${
-                    activeMenu === item.name || isActive
+                    isActive
                       ? "bg-[rgba(192,123,252,0.15)] border-l-2 border-[#c07bfc] text-[#c07bfc]"
                       : "text-[#d9cde4] hover:bg-[rgba(192,123,252,0.08)]"
                   }`
@@ -185,12 +188,12 @@ const AdminSidebar = () => {
 
       {/* Footer */}
       <div className="px-4 py-4 border-t border-[rgba(192,123,252,0.2)] flex-shrink-0 space-y-3">
-        <a
-          href="/login"
+        <NavLink
+          to="/login"
           className="block w-full px-3 py-2 bg-[rgba(192,123,252,0.1)] text-[#c07bfc] text-center text-xs font-medium rounded-lg hover:bg-[rgba(192,123,252,0.15)] transition-colors"
         >
           View Login Page
-        </a>
+        </NavLink>
         <p className="text-[#d9cde4] text-xs opacity-50 text-center">
           © 2026 BankAcquire
         </p>
@@ -199,4 +202,3 @@ const AdminSidebar = () => {
   );
 };
 
-export default AdminSidebar;

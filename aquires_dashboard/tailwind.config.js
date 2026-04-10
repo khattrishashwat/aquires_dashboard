@@ -3,12 +3,12 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"], // ✅ FIXED
+        sans: ["Inter", "sans-serif"],
       },
 
       colors: {
@@ -30,7 +30,7 @@ export default {
         foreground: "hsl(var(--foreground))",
 
         primary: {
-          DEFAULT: "#6d28d9",   // ✅ Added for your UI
+          DEFAULT: "#6d28d9",
           foreground: "#ffffff",
         },
 
@@ -54,12 +54,12 @@ export default {
         xl: "1rem",
         "2xl": "1.5rem",
         "3xl": "2rem",
-        custom: "32px", // ✅ for exact UI
+        custom: "32px",
       },
 
       boxShadow: {
-        card: "0 20px 60px rgba(0,0,0,0.08)", // ✅ main container
-        glow: "0 10px 30px rgba(168,85,247,0.4)", // ✅ button hover
+        card: "0 20px 60px rgba(0,0,0,0.08)",
+        glow: "0 10px 30px rgba(168,85,247,0.4)",
       },
 
       backgroundImage: {
