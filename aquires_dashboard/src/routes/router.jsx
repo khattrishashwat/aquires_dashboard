@@ -2,18 +2,32 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import AuthLayout from "../components/layout/AuthLayout";
 import AdminLayout from "../components/layout/AdminLayout";
 import Login from "../pages/auth/Login";
-import Dashboard from "../components/dashboard/Dashboard";
-
+import Dashboard from "../pages/Dashboard";
+import ForgotPassword from "../pages/auth/ForgetPassword";
+import OTP from "../pages/auth/Verify";
+import ResetPassword from "../pages/auth/ResetPassword";
 
 export const router = createBrowserRouter([
     {
-        path: "/login",
-                // element: <RootLayout />,
+        path: "/",
         element: <AuthLayout />,
         children: [
             {
                 index: true,
+                path: "login",
                 element: <Login />,
+            },
+            {
+                path: "forget-password",
+                element: <ForgotPassword />,
+            },
+            {
+                path:"otp-verify",
+                element: <OTP />,
+            },
+            {
+                path: "reset-password",
+                element: <ResetPassword />,
             },
         ],
     },

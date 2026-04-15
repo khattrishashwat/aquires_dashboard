@@ -8,7 +8,6 @@ export function AuthProvider({ children }) {
   });
 
   const login = (token) => {
-    // localStorage.setItem("token", token);
     setIsAuthenticated(true);
     return true;
   };
